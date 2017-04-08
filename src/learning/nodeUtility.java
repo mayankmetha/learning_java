@@ -11,20 +11,26 @@ public class nodeUtility {
 		node end = new node(d);
 		end.data = data;
 		node current = root;
-		while(current.next!=null) {
-			current = current.next;
-		}
+		for(;current.next!=null;current=current.next);
 		current.next = end;
 		listCount++;
 		//System.out.println("Node created");
 		return root;
 	}
+	public node addAfter(int d,String data,int nodeIndex) {
+		node toadd = new node(d);
+		toadd.data = data;
+		node prev = root;
+		for(;prev.index!=nodeIndex&&prev.next!=null;prev = prev.next);
+		toadd.next = prev.next;
+		prev.next = toadd;
+		return root;
+	}
 	public void displayNodeValue() {
 		System.out.println("Index of nodes are:");
 		node current = root;
-		while(current.next!=null) {
+		for(;current.next!=null;current=current.next) {
 			System.out.print(current.index+"->");
-			current = current.next;
 		}
 		System.out.println(current.index);
 	}
