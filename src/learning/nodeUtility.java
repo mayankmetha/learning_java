@@ -4,21 +4,20 @@ public class nodeUtility {
 	public node root;
 	public int listCount;
 	public nodeUtility() {
-		root = new node(0);
+		root = new node("root");
 	}
-	public node add(int d,String data) {
-		node end = new node(d);
-		end.data = data;
+	public node add(String data) {
+		node end = new node(data);
 		node current = root;
 		for(;current.next!=null;current=current.next);
 		current.next = end;
 		return root;
 	}
-	public node addAfter(int d,String data,int nodeIndex) {
-		node toadd = new node(d);
+	public node addAfter(String data,String nodeIndex) {
+		node toadd = new node(data);
 		toadd.data = data;
 		node prev = root;
-		for(;prev.index!=nodeIndex&&prev.next!=null;prev = prev.next);
+		for(;prev.data!=nodeIndex&&prev.next!=null;prev = prev.next);
 		toadd.next = prev.next;
 		prev.next = toadd;
 		return root;
@@ -27,8 +26,8 @@ public class nodeUtility {
 		System.out.println("Index of nodes are:");
 		node current = root;
 		for(;current.next!=null;current=current.next) {
-			System.out.print(current.index+"->");
+			System.out.print(current.data+"->");
 		}
-		System.out.println(current.index);
+		System.out.println(current.data);
 	}
 }
