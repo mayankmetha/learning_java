@@ -5,7 +5,6 @@ public class nodeUtility {
 	public int listCount;
 	public nodeUtility() {
 		root = new node(0);
-		listCount = 0;
 	}
 	public node add(int d,String data) {
 		node end = new node(d);
@@ -13,8 +12,6 @@ public class nodeUtility {
 		node current = root;
 		for(;current.next!=null;current=current.next);
 		current.next = end;
-		listCount++;
-		//System.out.println("Node created");
 		return root;
 	}
 	public node addAfter(int d,String data,int nodeIndex) {
